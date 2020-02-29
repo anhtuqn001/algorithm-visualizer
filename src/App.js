@@ -1,25 +1,28 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PathFindingVisualizer from './PathFindingVisualizer/PathFindingVisualizer';
+import SortingVisualizer from './SortingVisualizer/SortingVisualizer';
+import MainPage from './MainPage/MainPage.js';
+import {BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Switch>
+      <Route exact path="/">
+        <MainPage/>
+      </Route>
+      <Route path="/path-finding">
+        <PathFindingVisualizer/>
+      </Route>
+      <Route path="/sorting">
+        <SortingVisualizer/>
+      </Route>
+    </Switch>
+    </Router>
   );
 }
 
